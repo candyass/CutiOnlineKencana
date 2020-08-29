@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/navigation_profil"
+            android:icon="@drawable/ic_profi_24dp"
+            android:title="@string/title_profil"/>
+
+    <item
+            android:id="@+id/navigation_pengajuan_cuti"
+            android:icon="@drawable/ic_pengajuan_cuti_24dp"
+            android:title="@string/title_pengajuan_cuti"/>
+
+    <item
+            android:id="@+id/navigation_cuti_saya"
+            android:icon="@drawable/ic_cuti_saya_24dp"
+            android:title="@string/title_cuti_saya"/>
+
+</menu>

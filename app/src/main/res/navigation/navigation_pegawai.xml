@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigation_pegawai"
+            app:startDestination="@id/navigation_profil">
+
+    <fragment android:id="@+id/navigation_profil" android:name="com.rs.kencana.view.ui.pegawai.ProfilFragment"
+              android:label="@string/title_profil" tools:layout="@layout/fragment_profil"/>
+
+    <fragment android:id="@+id/navigation_pengajuan_cuti"
+              android:name="com.rs.kencana.view.ui.pegawai.PengajuanCutiFragment"
+              android:label="@string/title_pengajuan_cuti" tools:layout="@layout/fragment_pengajuan_cuti"/>
+
+    <fragment android:id="@+id/navigation_cuti_saya" android:name="com.rs.kencana.view.ui.pegawai.CutiSayaFragment"
+              android:label="@string/title_cuti_saya" tools:layout="@layout/fragment_cuti_saya"/>
+</navigation>

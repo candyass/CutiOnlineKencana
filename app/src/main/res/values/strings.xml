@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Cuti Online RS Kencana</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_profil">Profil</string>
+    <string name="title_pengajuan_cuti">Pengajuan Cuti</string>
+    <string name="title_cuti_saya">Cuti Saya</string>
+    <string name="title_pegawai">Pegawai</string>
+    <string name="title_cuti">Cuti</string>
+    <string name="title_ketentuan">Dengan ini saya mengajukan cuti, hormat saya</string>
+
+</resources>

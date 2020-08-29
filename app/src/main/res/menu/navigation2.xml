@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/navigation_staff_pegawai"
+            android:icon="@drawable/ic_profi_24dp"
+            android:title="@string/title_pegawai"/>
+
+    <item
+            android:id="@+id/navigation_staff_cuti"
+            android:icon="@drawable/ic_pengajuan_cuti_24dp"
+            android:title="@string/title_cuti"/>
+
+</menu>

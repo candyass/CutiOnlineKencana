@@ -1,5 +1,6 @@
 package com.rs.kencana.view.ui.pegawai;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +16,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.rs.kencana.R;
 import com.rs.kencana.database.model.QueryCuti;
+import com.rs.kencana.util.MyLogger;
 import com.rs.kencana.view.MainActivity;
+import com.rs.kencana.view.detailcuti.DetailCutiActivity;
 
 import java.text.DateFormat;
 import java.util.List;
@@ -77,7 +80,7 @@ public class CutiSayaFragment extends Fragment {
 
 
 
-    class CutiHolder extends RecyclerView.ViewHolder {
+    class CutiHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView textNama;
         private TextView textTanggalCutiText;
@@ -88,6 +91,8 @@ public class CutiSayaFragment extends Fragment {
         private ImageView ttdAdmin;
         private TextView textTTDPegawai;
         private TextView textTTDAdmin;
+
+        private QueryCuti queryCuti;
 
         public CutiHolder(@NonNull View itemView) {
             super(itemView);
@@ -100,25 +105,35 @@ public class CutiSayaFragment extends Fragment {
             ttdAdmin = itemView.findViewById(R.id.list_pengajuan_cuti_ttd_admin);
             textTTDPegawai = itemView.findViewById(R.id.list_pengajuan_cuti_ttd_pegawai_text);
             textTTDAdmin = itemView.findViewById(R.id.list_pengajuan_cuti_ttd_admin_text);
+            itemView.setOnClickListener(this);
         }
 
         public void bindItem(QueryCuti query) {
-            textNama.setText(query.getNama());
-            textTanggalCutiText.setText(dateFormat.format(query.getTanggalCuti()));
-            textTanggalAkhirCutiText.setText(dateFormat.format(query.getTanggalAkhirCuti()));
-            textKeterangan.setText(query.getKeteranganCuti());
-            textStatusKeterangan.setText(query.getStatusKeterangan());
+            queryCuti = query;
+            textNama.setText(queryCuti.getNama());
+            textTanggalCutiText.setText(dateFormat.format(queryCuti.getTanggalCuti()));
+            textTanggalAkhirCutiText.setText(dateFormat.format(queryCuti.getTanggalAkhirCuti()));
+            textKeterangan.setText(queryCuti.getKeteranganCuti());
+            textStatusKeterangan.setText(queryCuti.getStatusKeterangan());
             if(query.getTtdPegawai() != null) {
-                ttdPegawai.setImageBitmap(query.getTtdPegawai());
+                ttdPegawai.setImageBitmap(queryCuti.getTtdPegawai());
             }else {
                 ttdPegawai.setVisibility(View.GONE);
                 textTTDPegawai.setVisibility(View.GONE);
             }
             if(query.getTtdAdmin() != null) {
-                ttdAdmin.setImageBitmap(query.getTtdAdmin());
+                ttdAdmin.setImageBitmap(queryCuti.getTtdAdmin());
             }else {
                 ttdAdmin.setVisibility(View.GONE);
                 textTTDAdmin.setVisibility(View.GONE);
+            }
+        }
+
+        @Override
+        public void onClick(View v) {
+            if(queryCuti.getStatus() == 1) {
+                Intent intent = DetailCutiActivity.newIntent(getContext(), queryCuti.getIdCuti());
+                startActivity(intent);
             }
         }
     }

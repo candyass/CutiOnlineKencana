@@ -4,6 +4,7 @@
           package="com.rs.kencana">
 
     <dist:module dist:instant="true"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
             android:name=".MyApplication"
@@ -13,8 +14,11 @@
             android:roundIcon="@mipmap/ic_launcher_2_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".view.detailpegawai.DetailPegawaiActivity"
-                  android:screenOrientation="portrait">
+        <activity android:name=".view.detailcuti.DetailCutiActivity">
+        </activity>
+        <activity
+                android:name=".view.detailpegawai.DetailPegawaiActivity"
+                android:screenOrientation="portrait">
         </activity>
         <activity
                 android:name=".view.MainAdminActivity"

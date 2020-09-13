@@ -127,4 +127,8 @@ public class MyApplication extends Application {
         });
     }
 
+    public LiveData<QueryCuti> getDetailQueryCutiPegawai(long idCuti) {
+        return database.getCutiDao().getDetailQueryCutiPegawai(idCuti);
+    }
+
 }

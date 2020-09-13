@@ -21,6 +21,11 @@ public interface CutiDao {
             "FROM Cuti c JOIN Pegawai p ON c.idPegawai = p.id WHERE p.id =:id AND status <> 0")
     LiveData<List<QueryCuti>> getQueryCutiPegawaiTerproses(String id);
 
+    @Query("SELECT c.idCuti, c.tanggalCuti, c.tanggalAkhirCuti, c.keteranganCuti, c.diProses, c.idPegawai, " +
+            "c.ttdPegawai, c.ttdAdmin, c.status, c.statusKeterangan, p.nama " +
+            "FROM Cuti c JOIN Pegawai p ON c.idPegawai = p.id WHERE c.idCuti =:idCuti")
+    LiveData<QueryCuti> getDetailQueryCutiPegawai(long idCuti);
+
 
     @Query("SELECT c.idCuti, c.tanggalCuti, c.tanggalAkhirCuti, c.keteranganCuti, c.diProses, c.idPegawai, " +
             "c.ttdPegawai, c.ttdAdmin, c.status, c.statusKeterangan, p.nama " +

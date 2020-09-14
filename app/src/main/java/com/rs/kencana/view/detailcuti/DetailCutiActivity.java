@@ -8,6 +8,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.pdf.PdfDocument;
 import android.os.Build;
+import android.os.Environment;
 import android.print.PrintAttributes;
 import android.print.pdf.PrintedPdfDocument;
 import android.view.View;
@@ -165,9 +166,13 @@ public class DetailCutiActivity extends AppCompatActivity {
         document.finishPage(page);
 
         File result = null;
+        OutputStream stream = null;
         try {
-            result = File.createTempFile("contoh", ".pdf", context.getFilesDir());
-            document.writeTo(new BufferedOutputStream(new FileOutputStream(result)));
+            result = File.createTempFile("contoh", ".pdf", context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS));
+            stream = new BufferedOutputStream(new FileOutputStream(result));
+            document.writeTo(stream);
+            stream.flush();
+            stream.close();
         } catch (FileNotFoundException e) {
             MyLogger.logPesan(e.getMessage());
         } catch (IOException e) {
